@@ -1,0 +1,12 @@
+
+  <header class="py-2 text-white">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start px-4">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img src="../layout/img/logo1.svg" alt="" width="90px">
+        </a>
+
+        <p class="title nav col-12 col-lg-auto me-lg-auto mb-2 mx-3 justify-content-center mb-md-0">Admin系統後台</p>
+      </div>
+    </div>
+  </header>
