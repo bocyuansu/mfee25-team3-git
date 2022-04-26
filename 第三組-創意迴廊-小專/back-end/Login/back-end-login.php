@@ -1,8 +1,8 @@
 <?php
-session_start();
-if(isset($_SESSION["user"])){
-    header("location: ../Vendor/back-end-vendor-read.php");
-} 
+// session_start();
+// if(isset($_SESSION["user"])){
+//     header("location: ../Vendor/back-end-vendor-read.php");
+// } 
 //若使用者已登入，無法連到login.php頁面，會跳到首頁index_end.php
 ?>
 <!doctype html>

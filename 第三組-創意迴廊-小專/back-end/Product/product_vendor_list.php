@@ -36,8 +36,9 @@ switch ($type) {
         $order = "product_num ASC";
 }
 
+
 if (empty($_GET["vendor_id"])) {
-    $vendor_id = '1';
+    $vendor_id = '7';
     $sql = "SELECT * FROM product WHERE product.valid=1";
     $result = $conn->query($sql);
     $total = $result->num_rows;
@@ -65,13 +66,25 @@ if (empty($_GET["vendor_id"])) {
     JOIN classify ON product.classify_id = classify.id 
     JOIN category ON product.category_id = category.id
     JOIN vendor_user ON product.vendor_id = vendor_user.id
-    WHERE product.valid=1 ORDER BY $order LIMIT $start, $per_page";
+    WHERE product.vendor_id ='$vendor_id' AND product.valid=1 ORDER BY $order LIMIT $start, $per_page";
+    
+    $sqlCount = "SELECT product.*, classify.classify_name, category.category_name, vendor_user.business_name FROM product 
+    JOIN classify ON product.classify_id = classify.id 
+    JOIN category ON product.category_id = category.id
+    JOIN vendor_user ON product.vendor_id = vendor_user.id
+    WHERE product.vendor_id ='$vendor_id' AND product.valid=1 ORDER BY $order ";
+
+    $resultCount = $conn->query($sqlCount);
+    $total = $resultCount->num_rows;
+    $page_count = CEIL($total / $per_page);
+
 } else {
     $sql = "SELECT product.*, classify.classify_name, category.category_name, vendor_user.business_name FROM product 
     JOIN classify ON product.classify_id = classify.id 
     JOIN category ON product.category_id = category.id
     JOIN vendor_user ON product.vendor_id = vendor_user.id
     WHERE product.vendor_id ='$vendor_id' AND product.valid=1 ORDER BY $order LIMIT $start, $per_page";
+
 }
 
 // $sql = "SELECT product.*, classify.classify_name FROM product 
@@ -91,7 +104,7 @@ if (isset($_GET["searchType"]) && isset($_GET["searchInput"])) {
     // $vendor_id = $_GET["vendor_id"];
 
     $sqlCount = "SELECT * FROM product WHERE product.vendor_id = '$vendor_id' AND $searchType LIKE '%$searchInput%' AND product.valid=1 
-    ORDER BY $order LIMIT $start, $per_page";
+    ORDER BY $order";
     $resultCount = $conn->query($sqlCount);
     $total = $resultCount->num_rows;
     $page_count = CEIL($total / $per_page);
@@ -109,7 +122,7 @@ if (isset($_GET["valid"])) {
     WHERE  product.vendor_id ='$vendor_id' AND product.shelf = $valid ORDER BY $order LIMIT $start, $per_page";
     
     $sqlCount = "SELECT * FROM product WHERE product.vendor_id = '$vendor_id' AND product.shelf = $valid AND product.valid=1 
-    ORDER BY $order LIMIT $start, $per_page";
+    ORDER BY $order";
     $resultCount = $conn->query($sqlCount);
     $total = $resultCount->num_rows;
     $page_count = CEIL($total / $per_page);
