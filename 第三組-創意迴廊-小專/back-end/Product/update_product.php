@@ -1,31 +1,30 @@
 <?php
-
 require_once("../project-connect.php");
 
-$id=$_POST["id"];
-$product_name=$_POST["product_name"];
-$category_id=$_POST["category_id"];
-$classify_id=$_POST["classify_id"];
-$category=$_POST["category"];
-$shelf=$_POST["shelf"];
-$price=$_POST["price"];
-$product_count=$_POST["product_count"];
-$img=$_POST["img"];
+$id=$_POST["id"]; // product.id
 
-$sql = "SELECT * FROM product WHERE id='$id' AND valid=1";
+$sql = "SELECT * FROM product WHERE product.id='$id'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
+
+$product_name = $row["product_name"];
+$category_id = $row["category_id"];
+$category = $row["category"];
+$classify_id = $row["classify_id"];
+$shelf = $row["shelf"];
+$price = $row["price"];
+$product_count = $row["product_count"];
+
 if (!$row) {
     header("location: 404.php");
 }
 
-
-
+// 如果未選擇圖片，則寫回原本的圖片
 if (empty($img)){
     header("location: product_complete.php?id=" . $id);
     $img = $row["img"];
 }else {
-    $img=$_POST["img"];
+    $img = $_POST["img"];
 }
 
 
@@ -41,8 +40,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "編輯資料錯誤:" . $conn->error;
     exit;
-   }
-
+}
 
   
 ?>

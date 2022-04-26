@@ -112,12 +112,10 @@ $row = $result->fetch_assoc();
                                 <?php endif; ?>
 
                             </tr>
-
-
+                            
                             <tr class="border-end">
                                 <th style="width:150px">商品圖片</th>
-                                <td class="img"><img class="object-cover" src="../../images/<?= $row["img"] ?>" alt="">
-
+                                <td class="img"><img class="object-cover" src="../../images/<?=$row["classify_name"]?>/<?=$row["category_name"]?>/<?= $row["img"] ?>" alt="">
                             </tr>
 
                         </table>

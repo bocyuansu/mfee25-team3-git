@@ -7,13 +7,14 @@ $id = $_GET["id"];
 
 require_once("../project-connect.php");
 
-// $sql = "SELECT product.*, category.category_name FROM product 
-// JOIN category ON product.category_id = category.id
-// WHERE product.valid=1";
-
-$sql = "SELECT * FROM product WHERE id='$id' AND valid=1";
+$sql = "SELECT product.*, classify.classify_name FROM product 
+JOIN classify ON product.classify_id = classify.id
+WHERE product.id = '$id' AND product.valid = '1'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
+
+
+
 // if (!$row) {
 //     header("location: 404.php");
 // }
@@ -112,10 +113,10 @@ $row = $result->fetch_assoc();
                             <td>
                                 <select id="classify_id" name="classify_id" class="form-control" style="width:400px">
                                     <?php
-                                    $sql_classify = "SELECT * FROM classify";
-                                    $result_classify = $conn->query($sql_classify);
-                                    $rows_classify = $result_classify->fetch_all(MYSQLI_ASSOC);
-                                    foreach ($rows_classify as $row_classify) :
+                                        $sql_classify = "SELECT * FROM classify";
+                                        $result_classify = $conn->query($sql_classify);
+                                        $rows_classify = $result_classify->fetch_all(MYSQLI_ASSOC);
+                                        foreach ($rows_classify as $row_classify) :
                                     ?>
                                         <?php
                                         if ($row["classify_id"] == $row_classify['id']) :
@@ -129,12 +130,7 @@ $row = $result->fetch_assoc();
                                         endif;
                                         ?>
 
-
                                     <?php endforeach; ?>
-
-
-
-
 
                                 </select>
                                 <select id="category_id" name="category_id" class="form-control mt-2" style="width:400px">
@@ -142,9 +138,6 @@ $row = $result->fetch_assoc();
                                 </select>
                             </td>
                         </tr>
-
-
-
 
                         <tr>
                             <th style="width:150px">金額</th>
@@ -178,12 +171,10 @@ $row = $result->fetch_assoc();
                         <tr class="border-end">
                             <th></th>
                             <td class=" img_container ">
-                                <img id="prd_img_show" src="../../images/<?= $row["img"] ?>" />
+                                <img id="prd_img_show" src="../../images/<?=$row["classify_name"]?>/<?=$row["category"]?>/<?= $row["img"] ?>"/>
                             </td>
                         </tr>
-
-
-
+                        
                     </table>
                     <div class="py-2">
                         <button type="submit" class="btn btn-info text-white">儲存</button>

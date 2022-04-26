@@ -6,6 +6,7 @@ $id = $_GET["id"];
 //isset用于检测变量是否已设置并且非NULL
 
 require_once("../project-connect.php");
+
 $sql = "SELECT product.*, classify.classify_name, category.category_name FROM product 
 JOIN classify ON product.classify_id = classify.id 
 JOIN category ON product.category_id = category.id
@@ -13,6 +14,7 @@ WHERE product.id='$id' AND product.valid=1";
 
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
+
 // if (!$row) {
 //     header("location: 404.php");
 // }
@@ -124,7 +126,7 @@ $row = $result->fetch_assoc();
 
                             <tr class="border-end">
                                 <th style="width:150px">商品圖片</th>
-                                <td class="img"><img class="object-cover" src="../../images/<?= $row["img"] ?>" alt="">
+                                <td class="img"><img class="object-cover" src="../../images/<?=$row["classify_name"]?>/<?= $row["category_name"] ?>/<?= $row["img"] ?>" alt="">
                             </tr>
 
                         </table>

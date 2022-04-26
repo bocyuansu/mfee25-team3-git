@@ -1,6 +1,5 @@
-
 <?php
-// api 有找到 status =1 + 陣列, 沒找到或是沒輸入 status=0
+// api 有找到 status = 1 + 陣列, 沒找到或是沒輸入 status = 0
 require("../project-connect.php");
 
 if (!isset($_POST["id"])) {
@@ -15,8 +14,8 @@ if (!isset($_POST["id"])) {
 $id = $_POST["id"];
 
 
-$sql = "SELECT id, category_name FROM category
-WHERE classify_id=$id";
+$sql = "SELECT category.id, category_name FROM category
+WHERE classify_id = '$id'";
 
 $result = $conn->query($sql);
 
