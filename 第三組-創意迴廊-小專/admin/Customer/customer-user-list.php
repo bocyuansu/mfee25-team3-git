@@ -35,7 +35,7 @@ switch ($type) {
     $order = "member_num ASC";
     break;
   case "2":
-    $order = "create_time ASC";
+    $order = "create_time DESC";
     break;
   case "3":
     $order = "BINARY(CONVERT(`member_name` USING big5)) ASC";

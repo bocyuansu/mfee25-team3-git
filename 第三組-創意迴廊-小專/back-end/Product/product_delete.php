@@ -9,6 +9,7 @@ if(!isset($_GET["id"])){
 
 
 $vendor_id=$_GET["vendor_id"];
+$id = $_GET["id"];
 // echo $id;
 
 //DELETE

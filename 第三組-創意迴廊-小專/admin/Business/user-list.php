@@ -87,7 +87,6 @@ if (isset($_GET["search"])) {
   LIMIT $start,$per_page";
   $result = $conn->query($sql);
   $user_count = $result->num_rows;
-  $total = $result->num_rows;
 }
 
 $rows = $result->fetch_all(MYSQLI_ASSOC);

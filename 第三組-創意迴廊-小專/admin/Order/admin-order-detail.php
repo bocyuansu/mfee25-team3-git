@@ -57,7 +57,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
 /*刪除資料表內容*/
 if (isset($_POST['delete_product'])) {
     $id = $_POST['delete_id'];
-    $query2 = "DELETE FROM user_order_detail WHERE user_order_detail.id ='$id'";
+    $query2 = "DELETE FROM user_order_detail WHERE user_order_detail.product_id ='$id'";
     $query_run2 = mysqli_query($conn, $query2);
     header("location: admin-order-detail.php?id=" . $order_id);
 }
