@@ -1,11 +1,12 @@
 <?php
+require_once("../project-connect.php");
 
+if(!isset($_SESSION["user"])){
+    header("location: ../Login/back-end-login.php");
+    exit;
+}
 
 $id = $_GET["id"];
-
-//isset用于检测变量是否已设置并且非NULL
-
-require_once("../project-connect.php");
 
 $sql = "SELECT product.*, classify.classify_name, category.category_name FROM product 
 JOIN classify ON product.classify_id = classify.id 

@@ -68,6 +68,7 @@ LIMIT $start, $per_page";
 $result = $conn->query($sql);
 $rows = $result->fetch_all(MYSQLI_ASSOC);
 
+
 ?>
 
 <!doctype html>
@@ -82,7 +83,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
          text-decoration: none;
       }
       .table-wrap{
-         height: 500px;
+         height: 465px;
       }
       .my-btn{
          font-size: 16px;
@@ -217,6 +218,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
                            }
    
                            echo '$' . $total;
+
                            ?>
                         </td>
                         <td><?= $row["order_address"] ?></td>
@@ -244,6 +246,8 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
          </div>
       </div> <!-- container -->
    </div> <!-- d-flex -->
+
+<?php $conn -> close(); ?>
 
    <!-- Bootstrap JavaScript Libraries -->
 

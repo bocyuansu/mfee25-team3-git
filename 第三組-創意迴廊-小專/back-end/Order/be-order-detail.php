@@ -8,6 +8,7 @@ if(!isset($_SESSION["user"])){
 }else{
    $vendor_id = $_SESSION["user"]["id"];
 }
+
 $business_name = $_SESSION["user"]["business_name"];
 
 if (!isset($_GET["order_id"])) {
@@ -279,6 +280,9 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
 
       </div>
    </div>
+
+<?php $conn -> close(); ?>
+
    <!-- 刪除確認的JS -->
    <script type="text/javascript">
       function del() {

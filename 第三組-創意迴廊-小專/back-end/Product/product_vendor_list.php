@@ -1,6 +1,11 @@
 <?php
 require_once("../project-connect.php");
 
+if(!isset($_SESSION["user"])){
+    header("location: ../Login/back-end-login.php");
+    exit;
+}
+
 if (!isset($_GET["p"])) {
     $p = 1;
 } else {
@@ -38,7 +43,7 @@ switch ($type) {
 
 
 if (empty($_GET["vendor_id"])) {
-    $vendor_id = '7';
+    $vendor_id = $_SESSION["user"]["id"];
     $sql = "SELECT * FROM product WHERE product.valid=1";
     $result = $conn->query($sql);
     $total = $result->num_rows;

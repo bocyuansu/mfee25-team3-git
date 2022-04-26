@@ -233,7 +233,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 
-
+<?php $conn -> close(); ?>
 
     <script src="../sidebars.js"></script>
     <script>

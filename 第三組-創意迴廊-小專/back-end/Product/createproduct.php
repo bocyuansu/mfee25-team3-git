@@ -1,5 +1,11 @@
 <?php
 require_once("../project-connect.php");
+
+if(!isset($_SESSION["user"])){
+    header("location: ../Login/back-end-login.php");
+    exit;
+}
+
 $sql = "SELECT * FROM product ORDER BY id DESC";
 $result = $conn->query($sql);
 $rows = $result->fetch_all(MYSQLI_ASSOC);

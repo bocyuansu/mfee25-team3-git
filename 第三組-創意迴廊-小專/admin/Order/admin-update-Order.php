@@ -15,5 +15,7 @@ if ($conn->query($sql) === TRUE) {
     exit;
 }
 
+$conn -> close();
+
 ?>
 

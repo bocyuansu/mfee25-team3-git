@@ -1,7 +1,10 @@
 <?php
 require_once("../project-connect.php");
 
-
+if(!isset($_SESSION["user"])){
+    header("location: ../Login/back-end-login.php");
+    exit;
+}
 
 // $product_num=$_POST["product_num"];
 $product_name=$_POST["product_name"];

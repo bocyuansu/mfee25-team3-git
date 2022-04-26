@@ -231,6 +231,8 @@ if (isset($_POST['delete_product'])) {
         </div>
     </div>
 
+<?php $conn -> close(); ?>
+
     <script src="sidebars.js"></script>
        <!-- 刪除確認的JS -->
     <script type="text/javascript">

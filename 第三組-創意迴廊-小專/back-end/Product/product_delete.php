@@ -1,6 +1,10 @@
 <?php
 require_once("../project-connect.php");
 
+if(!isset($_SESSION["user"])){
+    header("location: ../Login/back-end-login.php");
+    exit;
+}
 
 if(!isset($_GET["id"])){
     header("location: 404.php");

@@ -1,6 +1,10 @@
 <?php
-
 require_once("../project-connect.php");
+
+if(!isset($_SESSION["user"])){
+    header("location: ../Login/back-end-login.php");
+    exit;
+}
 
 $sql="SELECT * FROM vendor_user";
 $result = $conn->query($sql);

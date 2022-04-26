@@ -1,11 +1,11 @@
 <?php
-
-
-
-
-//isset用於判斷變數是否存在並且非NULL
-
 require_once("../project-connect.php");
+
+if(!isset($_SESSION["user"])){
+    header("location: ../Login/back-end-login.php");
+    exit;
+}
+
 $id = $_GET["id"];
 $vendor_id = $_GET["vendor_id"];
 $sql = "SELECT product.*, classify.classify_name, category.category_name FROM product 

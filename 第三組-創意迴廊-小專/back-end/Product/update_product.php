@@ -1,6 +1,11 @@
 <?php
 require_once("../project-connect.php");
 
+if(!isset($_SESSION["user"])){
+    header("location: ../Login/back-end-login.php");
+    exit;
+}
+
 $id=$_POST["id"]; // product.id
 
 $sql = "SELECT * FROM product WHERE product.id='$id'";

@@ -1,6 +1,11 @@
 <?php
 require_once("../project-connect.php");
 
+if(!isset($_SESSION["user"])){
+    header("location: ../Login/back-end-login.php");
+    exit;
+}
+
 $id=$_SESSION["user"]["id"];
 $name=$_POST["business_name"];
 $account=$_POST["account"];
