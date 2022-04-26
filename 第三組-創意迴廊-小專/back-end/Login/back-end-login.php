@@ -1,5 +1,17 @@
 <?php
-// session_start();
+session_start();
+// print_r($_SESSION["user"]["account"]);
+if(isset($_SESSION["user"])){
+    if($_SESSION["user"]["account"] === 'admin123@test.com'){
+        // var_dump("active");
+        session_destroy();
+        header("location: back-end-login.php");
+        exit;
+    }elseif(isset($_SESSION["user"])){
+        header("location: ../Vendor/back-end-vendor-read.php");
+    }
+}
+
 // if(isset($_SESSION["user"])){
 //     header("location: ../Vendor/back-end-vendor-read.php");
 // } 

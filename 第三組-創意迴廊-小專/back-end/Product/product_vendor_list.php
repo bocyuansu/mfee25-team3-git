@@ -413,15 +413,15 @@ $user_count = $result->num_rows;
                                 <td><?= $row["product_name"] ?></td>
                                 <td><?= $row["classify_name"] ?>><?= $row["category_name"] ?></td>
                                 <td><?= $row["price"] ?></td>
-                                <td>
+                                
                                 <?php 
                                     if ($row["product_count"] ==0){
-                                        echo "請補貨";
+                                        echo "<td style=color:red;>" . "請補貨" . "</td>";
                                     }else{
-                                        echo $row["product_count"] ;
+                                        echo "<td>" . $row["product_count"] ."</td>" ;
                                     }
                                 ?>
-                                </td>
+                                
                                 <td><?= $shelf ?></td>
                                 <td><a class="btn btn-info text-white" href="product.php?vendor_id=<?= $vendor_id ?>&id=<?= $row["id"] ?>">檢視</a></td>
                             </tr>

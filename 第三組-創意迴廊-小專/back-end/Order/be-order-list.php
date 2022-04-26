@@ -94,6 +94,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
       }
       .my-color{
          color: #4F345A;
+         font-weight: 600;
       }
       .page-item.active .page-link{
             background: #DFBB8B;
@@ -115,7 +116,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
       <?php require_once("../layout/be-order-sidebar.php"); ?>
       <div class="container">
          <div class="py-3">
-            <h1 class="my-3 my-color">廠商 :<?=$business_name?>
+            <h1 class="my-3 my-color">廠商:<?=$business_name?>
             </h1>
             <h2 class="mb-3">訂單資料</h2>
             <h3>
