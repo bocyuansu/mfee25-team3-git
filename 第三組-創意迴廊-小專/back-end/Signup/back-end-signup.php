@@ -11,11 +11,19 @@
     <link rel="stylesheet" href="../css/be-css.css">
 
     <style>
-
         form button {
             display: block;
             width: 100px;
         }
+        .my-btn{
+            font-size: 16px;
+            padding: 6px 12px;
+            color: #FFF;
+            background-color: #CA965C;
+            border: 0;
+            border-radius: 0.25rem;
+        }
+
     </style>
   </head>
   <body>
@@ -48,7 +56,7 @@
                     <input class="col-9" type="text" name="address" required>
                 </div>
                 <div class="d-flex justify-content-center">
-                <button class="btn btn-info text-center">註冊</button>
+                <button class="my-btn text-center">註冊</button>
                 </div>
             </form>
         </div>
